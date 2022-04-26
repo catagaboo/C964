@@ -2,4 +2,4 @@
 ```python
 print('hello');
 ```
-`inline_code();`
+
