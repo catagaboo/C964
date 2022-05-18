@@ -1,0 +1,70 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May  7 18:27:44 2022
+
+@author: gabesmacbookpro
+"""
+#importing libraries
+
+import numpy as np 
+import pandas as pd
+
+import matplotlib as plt
+
+# #reading the data
+df = pd.read_csv('all_cocktails_with_liquors.csv')
+names = df[['Name', 'Main Alcohol']]
+x = []
+y = []
+
+drinkNames = df['Main Alcohol'].values.astype("U")
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+vectorizer = TfidfVectorizer(stop_words= 'english')
+tfidf = vectorizer.fit_transform(drinkNames)
+print(tfidf.shape)
+
+from sklearn.cluster import KMeans
+k=5
+km = KMeans(n_clusters=k, max_iter=300, n_init=100, random_state=42)
+km.fit(tfidf)
+
+labels = km.labels_
+cluster_center=km.cluster_centers_
+
+cluster_center
+
+from sklearn import metrics
+silhouette_score = metrics.silhouette_score(tfidf, labels, metric='euclidean')
+
+print(silhouette_score)
+
+from collections import Counter
+Counter(km.labels_)
+
+df['kmeans_cluster'] = km.labels_
+alcohol_clusters = (df[['Name', 'kmeans_cluster', 'Main Alcohol']]
+                    .sort_values(by=['kmeans_cluster', 'Main Alcohol'],
+                                 ascending=False)
+                    .groupby('kmeans_cluster').head(20))
+alcohol_clusters = alcohol_clusters.copy(deep=True)
+
+
+df.head()
+
+# clusters = df.groupby('cluster')
+    
+print("Cluster centroids: \n")
+order_centroids = km.cluster_centers_.argsort()[:, ::-1]
+terms = vectorizer.get_feature_names_out()
+
+
+
+for i in range(k):
+    print("Cluster %d:" % i)
+    for j in order_centroids[i, :10]: #print out 10 feature terms of each cluster
+        print (' %s' % terms[j])
+    print('------------')
+

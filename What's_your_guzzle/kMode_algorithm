@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun May 15 15:25:14 2022
+
+@author: gabecata
+"""
+
+import pandas as pd
+from kmodes.kmodes import KModes
+import matplotlib.pyplot as plt
+
+#displays all rows and columns
+#pd.set_option('display.width', 1000)
+
+#reads and loads the data
+df = pd.read_csv('drink_type_with_alcohols_3.csv')
+
+# Elbow curve to find optimal K
+cluster = []
+K = range(1,6)
+for num_clusters in list(K):
+    kmode = KModes(n_clusters=num_clusters, init = "random", n_init = 5, verbose=1)
+    clusters = kmode.fit_predict(df)
+    cluster.append(kmode.cost_)
+    
+plt.plot(K, cluster, 'bx-')
+plt.xlabel('No. of clusters')
+plt.ylabel('Cost')
+plt.title('Elbow Method For Optimal k')
+plt.show()
+
+#prints cluster centroids
+print('\n', kmode.cluster_centroids_, '\n')
+
+#adds and prints 'Cluster' column to dataset
+df.insert(6, "Cluster", clusters, True)
+#print(df)
+
+#prints drink names with 'Cluster' columns
+grouped = df['Cluster'].groupby(df['Name'])
+#print(grouped.mean())

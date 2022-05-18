@@ -1,0 +1,147 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May  7 18:27:44 2022
+
+@author: gabesmacbookpro
+"""
+#importing libraries
+
+import pandas as pd
+import nltk
+import re
+import matplotlib.pyplot as plt
+
+#reads and loads the data
+df = pd.read_csv('drink_type_with_alcohols.csv')
+#creates lists for each column from csv
+drink = df[ 'Drink'].values.astype("U")
+alcoholNames = df['Main Alcohol'].values.astype("U")
+drinkNames = df['Name'].values.astype("U")
+flavor = df['Flavor'].values.astype("U")
+
+#print(drinkNames[:10])
+
+#loads nltk's list of english stopwords
+stopwords = nltk.corpus.stopwords.words('english')
+
+def tokenize(text):
+    #this tokenizes by sentence, then by word to check that punctuation is caught as it's own token
+    tokens = [word.lower() for sent in nltk.sent_tokenize(text) for word in nltk.word_tokenize(sent)]
+    filtered_tokens = []
+    #this filters out any tokens not containing letters (e.g., numeric tokens, raw punctuation)
+    for token in tokens:
+        if re.search('[a-zA-Z]', token):
+            filtered_tokens.append(token)
+    return filtered_tokens
+
+words_tokenized = []
+#this takes the names of the cocktails and makes them a list of vocab
+for i in alcoholNames:
+    allwords_tokenized = tokenize(i)
+    words_tokenized.extend(allwords_tokenized)
+    
+vocab_frame = pd.DataFrame({'words': words_tokenized})
+print(' there are ' + str(vocab_frame.shape[0]) + ' items in vocab_frame')
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+#vectorizes the data using TF-IDF
+vectorizer = TfidfVectorizer(stop_words= 'english')
+tfidf = vectorizer.fit_transform(drinkNames)
+print(tfidf.shape) #prints the shape of the tfidf matrix 
+#this is a list of features used in the tf-idf matrix
+terms = vectorizer.get_feature_names_out()
+
+#this is used to measure similarities against the tf-idf matrix to get a 
+#measure of similarity between each cocktail
+from sklearn.metrics.pairwise import cosine_similarity
+dist = 1 - cosine_similarity(tfidf)
+
+#initialize the class object with a predetermined number of 5 clusters 
+from sklearn.cluster import KMeans
+k=5
+km = KMeans(n_clusters=k)
+km.fit(tfidf)
+# assigns labels as the clusters
+clusters = km.labels_.tolist()
+#creates a dictionary
+drinks = {'Drink': drink, 'Name': drinkNames, 'cluster': clusters, 'Flavor': flavor}
+#converts dictionary into a DataFrame for ease of access
+frame = pd.DataFrame(drinks, index=[clusters], columns = ['Drink', 'Name', 'Flavor', 'cluster' ])
+#displays the number of cocktails in each cluster
+print(frame['cluster'].value_counts())
+#displays how many cocktails should be in each cluster based on the csv
+#print(frame['Flavor'].value_counts())
+
+grouped = frame['cluster'].groupby(frame['Name'])
+#print(grouped.mean())
+
+from sklearn.manifold import MDS
+#this uses Multi Dimensional Scaling to convert two components into a two-dimentional
+# array.
+MDS()
+#dissimilarity set to "precomputed" because there is a distance matrix (dist) we created 
+# "random_state" is set so the plot is reproducible.
+mds = MDS(n_components=2, dissimilarity="precomputed", random_state=500)
+
+pos = mds.fit_transform(dist)  # shape (n_components, n_samples)
+
+xs, ys = pos[:, 0], pos[:, 1]
+
+#this sets up colors per clusters using a dict
+cluster_colors = {0: '#1b9e77', 1: '#d95f02', 2: '#7570b3', 3: '#e7298a', 4: '#66a61e'}
+
+#this sets up cluster names using a dict
+cluster_names = {0: 'Fruity Drinks', 
+                 1: 'Sweet Drinks', 
+                 2: 'Bitter Drinks', 
+                 3: 'Sour Drinks', 
+                 4: 'Boozy Drinks'}
+
+#this creates a data frame that has the result of the MDS plus the cluster numbers and drink names
+df = pd.DataFrame(dict(x=xs, y=ys, label=clusters, Name=drinkNames, flavor=flavor)) 
+
+#group by cluster
+groups = df.groupby('label')
+
+#this sets up the plot
+fig, ax = plt.subplots(figsize=(15, 8)) # set size
+ax.margins(0.05) # this adds 5% padding to the autoscaling
+
+#this iterates through groups to layer the plot
+#this uses the cluster_name and cluster_color dictionaries with the 'name' lookup to return 
+#the appropriate color/label
+for name, group in groups:
+    ax.plot(group.x, group.y, marker='o', linestyle='', ms=12, 
+            label=cluster_names[name], color=cluster_colors[name], 
+            mec='none')
+    ax.set_aspect('auto')
+    ax.tick_params(\
+        axis= 'x',          # changes apply to the x-axis
+        which='both',      # both major and minor ticks are affected
+        bottom='off',      # ticks along the bottom edge are off
+        top='off',         # ticks along the top edge are off
+        labelbottom='off')
+    ax.tick_params(\
+        axis= 'y',         # changes apply to the y-axis
+        which='both',      # both major and minor ticks are affected
+        left='off',      # ticks along the bottom edge are off
+        top='off',         # ticks along the top edge are off
+        labelleft='off')
+ax.grid(False)    
+ax.legend(numpoints=1)  #this shows legend with only 1 point
+ax.set_facecolor("white")
+for i in range(len(df)):
+    ax.text(df.loc[i]['x'], df.loc[i]['y'], df.loc[i]['Name'], size=8)
+plt.show() #this displays the plot
+
+print("Cluster centroids: \n")
+#this sorts cluster centers by proximity to the centroid
+order_centroids = km.cluster_centers_.argsort()[:, ::-1]
+
+for i in range(k):
+    print("Cluster %d:" % i)
+    for j in order_centroids[i, :10]: #print out 10 feature drink terms of each cluster
+        print (' %s' % terms[j])
+    print('------------')
+

@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May  7 20:39:36 2022
+
+@author: gabesmacbookpro
+"""
+
+import numpy as np
+import pandas as pd
+import nltk
+import matplotlib.pyplot as plt
+from sklearn.cluster import AffinityPropagation
+
+from sklearn.cluster import KMeans
+ 
+
+
+#reads and loads the data
+df = pd.read_csv('drink_type_with_alcohols.csv')
+#creates lists for each column from csv
+drink = df[ 'Drink'].values.astype("U")
+alcoholNames = df['Main Alcohol'].values.astype("U")
+drinkNames = df['Name'].values.astype("U")
+flavor = df['Flavor'].values.astype("U")
+
+stopwords = nltk.corpus.stopwords.words('english')
+
+from sklearn.feature_extraction.text import TfidfVectorizer
+#vectorizes the data using TF-IDF
+vectorizer = TfidfVectorizer(stop_words= 'english')
+tfidf = vectorizer.fit_transform(drinkNames)
+print(tfidf.shape) #prints the shape of the tfidf matrix 
+#this is a list of features used in the tf-idf matrix
+terms = vectorizer.get_feature_names_out()
+
+
+num_clusters = 5
+
+km = KMeans(n_clusters=num_clusters)
+
+km.fit(tfidf)
+label = km.fit_predict(tfidf)
+
+clusters = km.labels_.tolist()
+
+drinkNames = { 'Drink': drink,'Name': drinkNames, 'Main Alcohol': alcoholNames, 'cluster': clusters, 'Flavor': flavor }
+
+frame = pd.DataFrame(drinkNames, index = [clusters] , columns = ['Name', 'Flavor', 'cluster'])
+
+print(frame['Flavor'].value_counts()) 
+
+#set up colors per clusters using a dict
+cluster_colors = {0: '#1b9e77', 1: '#d95f02', 2: '#7570b3', 3: '#e7298a', 4: '#66a61e'}
+
+#set up cluster names using a dict
+cluster_names = {0: 'Boozy Drinks', 
+                  1: 'Fruity Drinks', 
+                  2: 'Bitter Drinks', 
+                  3: 'Sour Drinks', 
+                  4: 'Shots'}
+

@@ -1,0 +1,125 @@
+Drink,Name,Main Alcohol
+1,Highball,Bourbon
+2,Scotch and Soda,Scotch
+3,7 & 7,Seagram 7
+4,Whiskey and Water,Whiskey
+5,Rum and Coke,Light Rum
+6,Cuba Libre,Light Rum
+7,Gin and Tonic, Gin
+8,Presbyterian, Bourbon
+9,Gin Rickey, Gin
+10,Old Fashioned, Bourbon
+11,Bloody Mary, Vodka
+12,Bloody Maria, Tequila
+13,Greyhound, Vodka
+14,Salty Dog, Vodka
+15,Screwdriver, Vodka
+16,Harvey Wallbanger, Vodka	 Galliano
+17,Tequila Sunrise, Tequila
+18,Cape Cod, Vodka
+19,Sea Breeze, Vodka
+20,Bay Breeze, Vodka
+21,Madras, Vodka
+22,Sex On The Beach, Vodka	 Peach Schnapps
+23,Slow Screw, Sloe Gin
+24,Slow Comfortable Screw, Sloe Gin	 Southern Comfort
+25,Bocci Ball, Amaretto
+26,Melon Ball, Vodka	 Midori
+27,Fuzzy Navel, Peach Schnapps
+28,Screaming Fuzzy Navel/Hairy Navel, Peach Schnapps	 Vodka
+29,Brandy Alexander, Brandy		Brown Creme de Cacao
+30,Golden Cadillac, Galliano	 White Creme de Cacao
+31,Banshee, Creme de Banana	 White Creme de Cacao
+32,Golden Dream, Galliano	 Triple-Sec
+33,Pink Squirrel, Creme de Almond	 White Creme de Cacao
+34,Grasshopper, Green Creme de Menthe	 White Creme de Cacao
+35,Pink Lady, Gin
+36,Dreamsickle, Amaretto
+37,Toasted Almond, Amaretto	 Kahlua
+38,Smith & Kerns, Kahlua
+39,Martini, Gin/Vodka	 Dry Vermouth
+40,Dry Martini, Gin/Vodka	 Dry Vermouth
+41,Extra Dry Martini, Gin/Vodka	 Dry Vermouth
+42,Gibson, Gin/Vodka	 Dry Vermouth
+43,Manhattan, Bourbon	 Sweet Vermouth
+44,Dry Manhattan, Bourbon	 Dry Vermouth
+45,Perfect Manhattan, Bourbon	 Dry Vermouth	Sweet Vermouth
+46,Rob Roy, Scotch	 Sweet Vermouth
+47,Dry Rob Roy, Scotch	 Dry Vermouth
+48,Perfect Rob Roy, Scotch	 Dry Vermouth	Sweet Vermouth
+49,Southern Comfort Manhattan, Southern Comfort	 Dry Vermouth
+50,B&B, Brandy	 Benedictine
+51,French Connection/ Beautiful, Cognac	 Grand Marnier
+52,Black Russian, Vodka	 Kahlua
+53,Dirty Mother, Brandy	 Kahlua
+54,Brave Bull, Tequila	 Kahlua
+55,White Russian, Vodka	 Kahlua
+56,Dirty White Mother, Brandy	 Kahlua
+57,White Bull, Tequila	 Kahlua
+58,Godfather, Scotch	 Amaretto
+59,Godmother, Vodka	 Amaretto
+60,Godchild, Brandy	 Amaretto
+61,Gimlet, Gin
+62,Vodka Gimlet, Vodka
+63,Black Jamaican, Myers' Rum	Tia Maria
+64,Rusty Nail, Scotch	Drambuie
+65,Stinger, Brandy	White Creme de Menthe
+66,Colorado Bulldog, Vodka	Kahlua
+67,Rootbeer Float, Vodka	Kahlua	 Galliano
+68,Whiskey Sour, Whiskey
+69,Daiquiri,Light Rum
+70,Bacardi Cocktail,Light Rum
+71,Margarita, Tequila	 Triple-Sec
+72,Blue Margarita, Tequila	 Blue Curacao
+73,Long Island Iced Tea, Vodka	 Gin	 Rum	 Triple-Sec
+74,Electric Iced Tea/Texas Tea, Vodka	 Gin	 Rum	 Triple-Sec	 Tequila	
+75,Long Beach Iced Tea, Vodka	 Gin	 Rum	 Triple-Sec
+76,Tokyo Tea, Vodka	 Gin	 Rum	 Triple-Sec	 Midori	
+77,Lemonade, Vodka	 Gin	 Rum	 Triple-Sec
+78,Electric Lemonade, Vodka	 Gin	 Rum	 Triple-Sec	 Tequila	
+79,Electric Blue Lemonade/AMF, Vodka	 Gin	 Rum	 Blue Curacao	 Tequila	
+80,Adios,Vodka	 Gin	 Rum	 Blue Curacao	 Tequila	 Bacardi 151
+81,Lynchburg Lemonade, Jack Daniels	 Triple-Sec
+82,Vodka Collins, Vodka
+83,Tom Collins, Gin
+84,Joe Collins, Scotch
+85,John Collins, Bourbon
+86,Joan Collins, Brandy
+87,Sloe Gin Fizz, Sloe Gin
+88,Frozen Daiquiri Slush,Rum
+89,Bourbolicious Slush,Bourbon
+90,Mai Tai,Light Rum	 Creme de Almond	Triple-Sec	Myers’ Rum
+91,Zombie,Light Rum	 Creme de Almond	Triple-Sec	Bacardi 151
+92,Green Zombie,Light Rum	 Blue Curacao	Amaretto	Bacardi 151
+93,Singapore Sling, Gin	 Blackberry Brandy/Cherry Brandy
+94,Fog Cutter,Light Rum	 Brandy	Gin
+95,Blue Hawaiian,Light Rum	 Blue Curacao
+96,Hurricane,Light Rum	 Myers' Rum
+97,Planter's Punch, Myers' Rum
+98,Rum Runner,Light Rum	 Dark Rum	Blackberry Rum	Creme de Banana
+99,Bahama Mama, Malibu Rum
+100,Pina Colada, Light Rum
+101,Chi Chi, Vodka
+102,B-52, Kahlua	 Bailey's	Grand Marnier
+103,Mudslide, Kahlua	 Bailey's	Vodka
+104,Depth Charge, Any liquor	beer
+105,Lemon Drop, Vodka	 Triple-Sec
+106,Kamakazi Shot, Vodka	 Triple-Sec
+107,Poppers/Slammers, Any liquor
+108,Purple Hooter, Vodka	 Chambord
+109,Orgasm, Kahlua	 Bailey's	Amaretto
+110,Screaming Orgasm, Kahlua	 Bailey's	Amaretto	Vodka
+111,Snakebite, Yukon Jack
+112,Slippery Nipple, Sambuca	 Bailey's
+113,Buttery Nipple/Butterfinger, Bailey's	 Butterscotch Schnapps
+114,Liquid Cocaine,Jagermeister	 Rumplemintz/Goldschlager	Bacardi 151
+115,Oatmeal Cookie, Butterscotch Schnapps	 Bailey’s	Jagermeister	Goldschlager
+116,Blowjob, Bailey's	 Amaretto	Frangelico
+117,Cement Mixer, Bailey's
+118,Hot Shots, Cinnamon Schnapps
+119,Mind Eraser, Kahlua	 Vodka
+120,Silk Panties, Peach Schnapps	 Vodka
+121,Pretty Pink Silk Panties, Peach Schnapps	 Vodka
+122,Russian Rocketfuel, Vodka	 Blue Curacao
+123,Chocolate Cake,Lemon Vodka	 Frangelico
+124,Birthday Cake,Vanilla Vodka	 Frangelico

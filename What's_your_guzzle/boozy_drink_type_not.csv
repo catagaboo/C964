@@ -1,0 +1,40 @@
+Drink,Name,Main Alcohol,Type of Drink,Sweet or Not,Flavor,Mixes
+1,Highball,Bourbon,Highball Cocktail,Not,Boozy,Gingerale
+2,Scotch and Soda,Scotch,Highball Cocktail,Not,Boozy,Soda
+3,7 & 7,Seagram 7,Highball Cocktail,Not,Boozy,7up
+4,Whiskey and Water,Whiskey,Highball Cocktail,Not,Boozy,Water
+8,Presbyterian, Bourbon,Highball Cocktail,Not,Boozy,1/2 Soda 1/2 Gingerale
+39,Martini, Gin/Vodka	 Dry Vermouth,Martini Cocktail,Not,Boozy,Olive
+40,Dry Martini, Gin/Vodka	 Dry Vermouth,Martini Cocktail,Not,Boozy,Olive
+41,Extra Dry Martini, Gin/Vodka	 Dry Vermouth,Martini Cocktail,Not,Boozy,Olive
+42,Gibson, Gin/Vodka	 Dry Vermouth,Martini Cocktail,Not,Boozy,Onion
+43,Manhattan, Bourbon	 Sweet Vermouth,Martini Cocktail,Not,Boozy,Cherry
+44,Dry Manhattan, Bourbon	 Dry Vermouth,Martini Cocktail,Not,Boozy,Olive
+45,Perfect Manhattan, Bourbon	 Dry Vermouth	Sweet Vermouth,Martini Cocktail,Not,Boozy,Cherry
+46,Rob Roy, Scotch	 Sweet Vermouth,Martini Cocktail,Not,Boozy,Cherry
+47,Dry Rob Roy, Scotch	 Dry Vermouth,Martini Cocktail,Not,Boozy,Olive
+48,Perfect Rob Roy, Scotch	 Dry Vermouth	Sweet Vermouth,Martini Cocktail,Not,Boozy,Cherry
+49,Southern Comfort Manhattan, Southern Comfort	 Dry Vermouth,Martini Cocktail,Not,Boozy,Cherry
+50,B&B, Brandy	 Benedictine,2-Liquor Drink,Not,Boozy,Served in a Snifter
+51,French Connection/ Beautiful, Cognac	 Grand Marnier,2-Liquor Drink,Not,Boozy,Served in a Snifter
+58,Godfather, Scotch	 Amaretto,2-Liquor Drink,Not,Boozy,Over ice
+59,Godmother, Vodka	 Amaretto,2-Liquor Drink,Not,Boozy,Over ice
+60,Godchild, Brandy	 Amaretto,2-Liquor Drink,Not,Boozy,Over ice
+64,Rusty Nail, Scotch	Drambuie,2-Liquor Drink,Not,Boozy,Over ice
+73,Long Island Iced Tea, Vodka	 Gin	 Rum	 Triple-Sec,Tea/Lemonade Drink,Not,Boozy,Sweet and Sour	 Coke	Lemon wedge
+74,Electric Iced Tea/Texas Tea, Vodka	 Gin	 Rum	 Triple-Sec	 Tequila	,Tea/Lemonade Drink,Not,Boozy,Sweet and Sour	 Coke	Lemon wedge
+75,Long Beach Iced Tea, Vodka	 Gin	 Rum	 Triple-Sec,Tea/Lemonade Drink,Not,Boozy,Sweet and Sour	 Cranberry Juice	 Soda	Lemon wedge
+76,Tokyo Tea, Vodka	 Gin	 Rum	 Triple-Sec	 Midori	,Tea/Lemonade Drink,Not,Boozy,Sweet and Sour	7up	Lemon wedge
+77,Lemonade, Vodka	 Gin	 Rum	 Triple-Sec,Tea/Lemonade Drink,Not,Boozy,Sweet and Sour	7up	Lemon wedge
+78,Electric Lemonade, Vodka	 Gin	 Rum	 Triple-Sec	 Tequila	,Tea/Lemonade Drink,Not,Boozy,Sweet and Sour	7up	Lemon wedge
+79,Electric Blue Lemonade/AMF, Vodka	 Gin	 Rum	 Blue Curacao	 Tequila	,Tea/Lemonade Drink,Not,Boozy,Sweet and Sour	7up	Lemon wedge
+80,Adios,Vodka	 Gin	 Rum	 Blue Curacao	 Tequila	 Bacardi 151,Tea/Lemonade Drink,Not,Boozy,Sweet and Sour	7up	Lemon wedge
+81,Lynchburg Lemonade, Jack Daniels	 Triple-Sec,Tea/Lemonade Drink,Not,Boozy,1oz Sweet and Sour	7up	Lemon	 Cherry
+104,Depth Charge, Any liquor	beer,Shot,Not,Boozy,Shot
+106,Kamakazi Shot, Vodka	 Triple-Sec,Shot,Not,Boozy,1/4oz Lime Juice
+107,Poppers/Slammers, Any liquor,Shot,Not,Boozy,Splash 7up for dark alcohol	 Coke for white alcohol
+108,Purple Hooter, Vodka	 Chambord,Shot,Not,Boozy,Splash Sour Mix
+111,Snakebite, Yukon Jack,Shot,Not,Boozy,1/4oz Lime Juice
+114,Liquid Cocaine,Jagermeister	 Rumplemintz/Goldschlager	Bacardi 151,Shot,Not,Boozy,Shot
+118,Hot Shots, Cinnamon Schnapps,Shot,Not,Boozy,Drop Tabasco
+122,Russian Rocketfuel, Vodka	 Blue Curacao,Shot,Not,Boozy,Splash Energy Drink
